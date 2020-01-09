@@ -5,22 +5,15 @@
 
     <div class="main-column">
 
-        <?php
-
-        if( have_posts() ){
-
-            while( have_posts() )
-            { the_post();
-            
-                    
-        get_template_part('content', get_post_format());                        
-
-        }
-            }
+        <?php if(have_posts()) {
+            while( have_posts() ) { the_post(); ?>
+                <?php get_template_part('content', get_post_format());
+            }?>
+        <?php }
         else{
             echo '<p>No content found</p>';
-        }
-        ?>
+        } ?>
+
     </div><!-- /main-column -->
 
     <!-- secondry column -->
