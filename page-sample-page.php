@@ -1,28 +1,18 @@
 <?php get_header(); ?>
-<div class="container">
-    
-    <div class="site-content clearfix"> <!-- site-content -->
-    
+<div class="container">   
+    <div class="site-content clearfix"> <!-- site-content -->    
         <div class="main-column"> <!-- main-column -->
-
-            <?php
-
-            if( have_posts() ){
-
-                while( have_posts() )
-                { the_post();
-                    
-                        
-            get_template_part('content', get_post_format());                        
-
-            }
-            ?>
+            <?php if(have_posts()) {
+                while( have_posts() ) { the_post();
+                    get_template_part('content', get_post_format());
+                } ?>
        
                 <?php previous_posts_link() ?>
-                <?php next_posts_link('<img src="'.get_template_directory_uri().'/img/pagination-arrow.png" />' ); ?>
+                <?php 
+                    next_posts_link('<img src="'.get_template_directory_uri().'/img/pagination-arrow.png" />' ); 
+                ?>
         
-            <?php
-                }
+            <?php } 
             else{
                 echo '<p>No content found</p>';
             }
