@@ -2,11 +2,8 @@
 <div class="container">
     <div class="container-portfolio">
         <div class="row">
-    <?php
-        if( have_posts() ) :
-            while ( have_posts() ) : the_post(); ?>
-        
-        
+    <?php if(have_posts()) :
+        while (have_posts()) : the_post(); ?>        
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
                 <a href="<?php the_permalink(); ?>"><?php  the_post_thumbnail(); ?></a>      
@@ -14,13 +11,14 @@
         </div>
 
             <?php previous_posts_link() ?>
-            <?php next_posts_link('<img src="'.get_template_directory_uri().'/img/pagination-arrow.png" />' ); ?>
+            <?php 
+                next_posts_link('<img src="'.get_template_directory_uri().'/img/pagination-arrow.png" />' ); 
+            ?>
 
-        <?php  endwhile;
-        endif;
-        ?>
+            <?php   
+        endwhile;
+    endif; ?>
         </div>
     </div>
 </div>
 <?php get_footer(); ?>
-
