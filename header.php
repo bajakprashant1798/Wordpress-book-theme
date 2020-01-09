@@ -50,7 +50,7 @@
            
       
         <h5><?php bloginfo('description') ?></h5>
-        <?php if(is_page('home')){  ?>
+        <?php if (is_page('home')) {  ?>
         <?php }?>
         </div>
      
